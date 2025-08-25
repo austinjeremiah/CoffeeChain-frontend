@@ -3,6 +3,8 @@
 import { Button } from "./ui/button"
 import { useRouter } from "next/navigation"
 import { Particles } from "./magicui/particles"
+import { Marquee } from "./magicui/marquee"
+import { RainbowConnectButton } from "@/components/rainbow-connect-button"
 
 export function HeroSection() {
   const router = useRouter()
@@ -11,8 +13,25 @@ export function HeroSection() {
     router.push('/bridge')
   }
 
+  // Chain logos - you can replace these with your actual transparent logos
+  const chainLogos = [
+    { name: "Ethereum", src: "https://cdn.simpleicons.org/ethereum/8B4513" },
+    { name: "Polygon", src: "https://cdn.simpleicons.org/polygon/8B4513" },
+    { name: "Optimism", src: "https://cdn.simpleicons.org/optimism/8B4513" },
+    { name: "BSC", src: "https://cdn.simpleicons.org/binance/8B4513" },
+    { name: "Solana", src: "https://cdn.simpleicons.org/solana/8B4513" },
+    { name: "Cardano", src: "https://cdn.simpleicons.org/cardano/8B4513" },
+    { name: "Polkadot", src: "https://cdn.simpleicons.org/polkadot/8B4513" },
+    { name: "Chainlink", src: "https://cdn.simpleicons.org/chainlink/8B4513" },
+  ]
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Connect Wallet Button - Fixed Top Right */}
+      <div className="fixed top-6 right-6 z-50">
+        <RainbowConnectButton />
+      </div>
+
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div
@@ -24,51 +43,66 @@ export function HeroSection() {
       </div>
 
       {/* Coffee Steam Animation */}
-      <div className="absolute top-20 right-20 opacity-20">
-        <div className="steam w-2 h-8 bg-gradient-to-t from-primary/40 to-transparent rounded-full"></div>
-        <div className="steam w-2 h-6 bg-gradient-to-t from-primary/30 to-transparent rounded-full ml-3 -mt-6"></div>
-        <div className="steam w-2 h-10 bg-gradient-to-t from-primary/20 to-transparent rounded-full ml-6 -mt-8"></div>
+      <div className="absolute top-1/4 left-1/4 w-8 h-8">
+        <div className="steam w-2 h-2 bg-amber-300 rounded-full opacity-60"></div>
+        <div className="steam w-1.5 h-1.5 bg-amber-200 rounded-full opacity-40"></div>
+        <div className="steam w-1 h-1 bg-amber-100 rounded-full opacity-30"></div>
       </div>
 
       {/* Particles */}
       <Particles 
         className="absolute inset-0 z-0" 
-        quantity={100}
-        color="#654321"
+        quantity={50}
+        color="#8B4513"
         ease={80}
         refresh
       />
 
-      <div className="container mx-auto px-6 text-center relative z-10">
-        <div className="max-w-4xl mx-auto">
-          {/* Main Headline */}
-          <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-6 leading-tight">
-            Hyper-fast{" "}
-            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">cross-chain</span>{" "}
-            payments
-          </h1>
+      {/* Main Content */}
+      <div className="relative z-10 text-center px-6">
+        <h1 className="text-5xl md:text-7xl font-bold text-center mb-6">
+          <span className="bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
+            Hyper-fast Cross-Chain
+          </span>
+          <br />
+          <span className="text-foreground">Payments</span>
+        </h1>
+        
+        <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+          Lightning-fast cross-chain transactions. Any Token. Any Chain. 
+          <br />
+          
+        </p>
+        
+        <Button 
+          onClick={handleGetStarted}
+          size="lg" 
+          className="text-lg px-8 py-6 bg-primary hover:bg-primary/90 text-primary-foreground"
+        >
+          Get Started
+        </Button>
 
-          {/* Subheadline */}
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed max-w-3xl mx-auto">
-            CoffeeChain enables lightning-fast cross-chain transactions.{" "}
-            <span className="font-semibold text-foreground">Any Token. Any Chain.</span>
-          </p>
-
-          {/* CTA Button */}
-          <div className="mb-6">
-            <Button
-              size="lg"
-              onClick={handleGetStarted}
-              className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white font-bold px-12 py-4 rounded-full text-lg shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105"
+        {/* Chain Logos Marquee */}
+        <div className="mt-16 max-w-6xl mx-auto">
+          <div className="relative">
+            <Marquee 
+              className="[--duration:30s] [--gap:2rem]"
+              pauseOnHover={true}
             >
-              Get Started
-            </Button>
+              {chainLogos.map((logo, index) => (
+                <div key={index} className="flex items-center justify-center">
+                  <img
+                    src={logo.src}
+                    alt={logo.name}
+                    className="w-12 h-12 object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
+                    title={logo.name}
+                  />
+                </div>
+              ))}
+            </Marquee>
           </div>
         </div>
       </div>
-
-      {/* Gradient Overlay */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent"></div>
     </section>
   )
 }
