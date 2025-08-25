@@ -82,6 +82,15 @@ export function HeroSection() {
           Get Started
         </Button>
 
+                 {/* Receive Payment Button */}
+         <Button
+           onClick={() => router.push('/receive')}
+           size="lg"
+           className="text-lg px-8 py-6 bg-black hover:bg-black text-white ml-4"
+         >
+           Receive Payment
+         </Button>
+
         {/* Chain Logos Marquee */}
         <div className="mt-16 max-w-6xl mx-auto">
           <div className="relative">
