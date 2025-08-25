@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react"
 import { CoffeeLogo } from "./coffee-logo"
-import { Button } from "./ui/button"
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -24,12 +23,6 @@ export function Header() {
       <div className="container mx-auto px-6 py-4">
         <nav className="flex items-center justify-between">
           <CoffeeLogo />
-
-
-
-          <Button className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white font-semibold px-6 py-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300">
-            Get Started
-          </Button>
         </nav>
       </div>
     </header>

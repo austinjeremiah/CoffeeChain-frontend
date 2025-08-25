@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Manrope } from "next/font/google"
 import "./globals.css"
+import { Providers } from "@/lib/providers"
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -22,7 +23,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${manrope.variable} antialiased`}>
-      <body className="font-sans">{children}</body>
+      <body className="font-sans">
+        <Providers>
+          {children}
+        </Providers>
+      </body>
     </html>
   )
 }

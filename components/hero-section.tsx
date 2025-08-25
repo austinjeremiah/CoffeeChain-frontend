@@ -1,6 +1,15 @@
+"use client"
+
 import { Button } from "./ui/button"
+import { useRouter } from "next/navigation"
 
 export function HeroSection() {
+  const router = useRouter()
+
+  const handleGetStarted = () => {
+    router.push('/bridge')
+  }
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Pattern */}
@@ -39,6 +48,7 @@ export function HeroSection() {
           <div className="mb-6">
             <Button
               size="lg"
+              onClick={handleGetStarted}
               className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white font-bold px-12 py-4 rounded-full text-lg shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105"
             >
               Get Started
