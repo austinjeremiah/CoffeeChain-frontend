@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { CoffeeLogo } from "./coffee-logo"
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -22,7 +21,7 @@ export function Header() {
     >
       <div className="container mx-auto px-6 py-4">
         <nav className="flex items-center justify-between">
-          <CoffeeLogo />
+          <span className="text-xl font-bold text-foreground">CoffeeChain</span>
         </nav>
       </div>
     </header>

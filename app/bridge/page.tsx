@@ -1,7 +1,6 @@
 "use client"
 
-import { ConnectButton } from '@rainbow-me/rainbowkit'
-import { CoffeeLogo } from "@/components/coffee-logo"
+import { RainbowConnectButton } from "@/components/rainbow-connect-button"
 
 export default function BridgePage() {
   return (
@@ -27,8 +26,8 @@ export default function BridgePage() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md shadow-lg">
         <div className="container mx-auto px-6 py-4">
           <nav className="flex items-center justify-between">
-            <CoffeeLogo />
-            <ConnectButton />
+            <span className="text-xl font-bold text-foreground">CoffeeChain</span>
+            <RainbowConnectButton />
           </nav>
         </div>
       </header>
