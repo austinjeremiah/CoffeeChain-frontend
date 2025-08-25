@@ -51,7 +51,7 @@ export default function BridgePage() {
           <div className="bg-background/50 backdrop-blur-sm border border-border rounded-2xl p-8 shadow-xl">
             <div className="text-center">
               <h2 className="text-2xl font-semibold text-foreground mb-4">
-                Bridge Interface Coming Soon
+                Add it here man
               </h2>
               <p className="text-muted-foreground">
                 Connect your wallet above to get started with cross-chain bridging.

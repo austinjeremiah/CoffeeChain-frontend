@@ -12,7 +12,7 @@ const manrope = Manrope({
 
 export const metadata: Metadata = {
   title: "CoffeeChain - Hyper-fast Cross-Chain Payments",
-  description: "Lightning-fast cross-chain transactions. Any Token. Any Chain. Expanding to 70+ Chains and More.",
+  description: "Lightning-fast cross-chain transactions. Any Token. Any Chain.",
   generator: "v0.app",
 }
 

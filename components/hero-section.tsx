@@ -54,9 +54,6 @@ export function HeroSection() {
               Get Started
             </Button>
           </div>
-
-          {/* Secondary Note */}
-          <p className="text-sm text-muted-foreground font-medium tracking-wide">Expanding to 70+ Chains and More</p>
         </div>
       </div>
 
