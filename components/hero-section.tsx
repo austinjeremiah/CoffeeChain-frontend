@@ -2,6 +2,7 @@
 
 import { Button } from "./ui/button"
 import { useRouter } from "next/navigation"
+import { Particles } from "./magicui/particles"
 
 export function HeroSection() {
   const router = useRouter()
@@ -28,6 +29,15 @@ export function HeroSection() {
         <div className="steam w-2 h-6 bg-gradient-to-t from-primary/30 to-transparent rounded-full ml-3 -mt-6"></div>
         <div className="steam w-2 h-10 bg-gradient-to-t from-primary/20 to-transparent rounded-full ml-6 -mt-8"></div>
       </div>
+
+      {/* Particles */}
+      <Particles 
+        className="absolute inset-0 z-0" 
+        quantity={100}
+        color="#654321"
+        ease={80}
+        refresh
+      />
 
       <div className="container mx-auto px-6 text-center relative z-10">
         <div className="max-w-4xl mx-auto">
